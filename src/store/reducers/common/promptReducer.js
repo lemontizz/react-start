@@ -5,11 +5,10 @@ export default function prompt(state = initialState.prompt, action) {
 	let newState;
 	switch (action.type) {
 		case SHOW_PROMPT:
-			console.log('SHOW_PROMPT Action');
-			return action;
+			return action.prompt;
 		case HIDE_PROMPT:
 			console.log('HIDE_PROMPT Action');
-			return action;
+			return action.prompt;
 		default:
 			return state;
 	}

@@ -7,15 +7,28 @@ import style from '../Register/Register.css';
 import * as promptActions from '../../store/actions/common/commonAction';
 
 class Login extends Component {
-	render() {
-		function submit() {
-			promptActions.showPrompt({
-				show: true,
-				text: 'aaaa'
-			})
-			console.log('xxx')
-		}
+	constructor() {
+		super();
+	}		
 
+	componentWillMount () {
+		console.log(this);
+	}
+
+	submit() {
+		console.log(this);
+		console.log('xxxss')
+		this.props.promptActions.showPrompt({
+			show: true,
+			text: 'xxx',
+			title: 'mmm'
+		});
+		console.log('xxx')
+	}
+
+	render() {
+		let self = this;
+		console.log(self, 'self');
 		return (
 			<div>
 				<div className="register-head">
@@ -40,7 +53,7 @@ class Login extends Component {
 			            <label>Password</label>
 			        </div>
 			        <div className="form-btn">
-			            <button onClick={submit}><i className="fa fa-spinner fa-pulse fa-fw icon"></i>Submit</button>
+			            <button onClick={() => this.submit.call(self)}><i className="fa fa-spinner fa-pulse fa-fw icon"></i>Submit</button>
 			        </div>
 			        <div className="info">
 			            No account, <Link to="/Register" className="text-link">register</Link> one
@@ -50,6 +63,11 @@ class Login extends Component {
 		);
 	}
 }
+
+// Login.propTypes = {
+// 	promptActions: PropTypes.object,
+// 	prompt: PropTypes.object
+// };
 
 function mapStateToProps(state) {
 	return {
