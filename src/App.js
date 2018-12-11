@@ -7,7 +7,8 @@ import Home from './routes/Home/Home';
 import Login from './routes/Login/Login';
 import Register from './routes/Register/Register';
 import Manage from './routes/Manage/Manage';
-import Tip from './components/Tip/Tip.js';
+import Prompt from './components/Prompt/Prompt.js';
+import Loading from './components/Loading/Loading.js';
 
 const NoMatch = () => {
   return (
@@ -28,7 +29,8 @@ class App extends Component {
             <li><Link to="/manage">Manage</Link></li>
             <li><Link to="/anage">Manage</Link></li>
           </ul>
-          <Tip></Tip>
+          <Prompt></Prompt>
+          <Loading></Loading>
           <hr/>
           <Switch>
             <Route path="/" exact={true} component={Home} />

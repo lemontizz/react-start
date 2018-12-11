@@ -1,5 +1,4 @@
 export default {
-  stuff: [],
   prompt: {
   	show: false,
   	title: '提示',
@@ -8,5 +7,8 @@ export default {
   	confirmText: '确定',
   	confirmCallback: null,
   	cancelCallback: null
+  },
+  loading: {
+    show: false
   }
 };

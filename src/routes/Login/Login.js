@@ -4,7 +4,8 @@ import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import style from '../Register/Register.css';
-import * as promptActions from '../../store/actions/common/commonAction';
+import * as promptActions from '@/store/actions/common/promptAction';
+import * as loadingActions from '@/store/actions/common/loadingAction';
 
 class Login extends Component {
 	constructor() {
@@ -17,12 +18,18 @@ class Login extends Component {
 
 	submit() {
 		console.log(this);
-		console.log('xxxss')
+		console.log(this.store)
+		console.log('xxxss');
+
 		this.props.promptActions.showPrompt({
 			show: true,
 			text: 'xxx',
-			title: 'mmm'
+			title: 'mmm',
+			confirmCallback() {
+				alert('xxx')
+			}
 		});
+		this.props.loadingActions.showLoading();
 		console.log('xxx')
 	}
 
@@ -71,13 +78,15 @@ class Login extends Component {
 
 function mapStateToProps(state) {
 	return {
-		prompt: state.prompt
+		prompt: state.prompt,
+		loading: state.loading
 	}
 }
 
 function mapDispatchProps(dispatch) {
 	return {
-		promptActions: bindActionCreators(promptActions, dispatch)
+		promptActions: bindActionCreators(promptActions, dispatch),
+		loadingActions: bindActionCreators(loadingActions, dispatch),
 	}
 }
 

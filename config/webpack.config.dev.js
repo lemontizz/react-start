@@ -88,6 +88,7 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
+      '@': path.resolve(__dirname, '../', 'src')
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -125,7 +126,7 @@ module.exports = {
       //   include: paths.appSrc,
       // },
 
-      
+
       {
         // "oneOf" will traverse all following loaders until one will
         // match the requirements. When no loader matches it will fall

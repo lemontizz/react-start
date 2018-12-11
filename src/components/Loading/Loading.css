@@ -1,0 +1,22 @@
+.page-loading {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    background: rgba(255,255,255, 0.5);
+}
+.page-loading span {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    font-weight: bold;
+    margin-left: -20px;
+    margin-top: -10px;
+    color: #62A8EA;
+    /*font-size: 56px;*/
+    font-size: 14px;
+    margin-left: -28px;
+    margin-top: -28px;
+}

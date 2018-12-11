@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import stuff from './stuffReducer';
 import prompt from './common/promptReducer';
+import loading from './common/loadingReducer';
 
 const rootReducer = combineReducers({
-	stuff: stuff,
-	prompt: prompt
+	prompt,
+	loading
 });
 
 export default rootReducer;

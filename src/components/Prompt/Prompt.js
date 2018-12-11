@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import style from './Tip.css';
+import style from './Prompt.css';
 import * as promptActions from '../../store/actions/common/commonAction';
 
-class Tip extends Component {
+class Prompt extends Component {
 	constructor() {
 		super();
 	}
@@ -16,7 +16,7 @@ class Tip extends Component {
 	cancel() {
 		console.log('cancel');
 		if(this.props.prompt.cancelCallback && typeof this.props.prompt.cancelCallback == 'function') {
-			this.props.promptconfirmCallback();
+			this.props.prompt.confirmCallback();
 		}
 		this.props.promptActions.hidePrompt();
 	}
@@ -24,7 +24,7 @@ class Tip extends Component {
 	confirm() {
 		console.log('confirm');
 		if(this.props.prompt.confirmCallback && typeof this.props.prompt.confirmCallback == 'function') {
-			this.props.promptconfirmCallback();
+			this.props.prompt.confirmCallback();
 		}
 		this.props.promptActions.hidePrompt();
 	}
@@ -36,14 +36,14 @@ class Tip extends Component {
 			<div className={this.props.prompt.show ? 'page-prompt-wrap' : 'page-prompt-wrap hide'}>
 				<div className="page-prompt">
 					<div className="header clearfix">
-						<span data-field="title" className="title">提示 - {this.props.prompt.title}</span>
+						<span data-field="title" className="title">{this.props.prompt.title}</span>
 						<a href="javascript:;" className="close" onClick={() => this.cancel.call(self)}>
 							<span className="close-1"></span>
 							<span className="close-2"></span>
 						</a>
 					</div>
 					<div className="body">
-						<div data-field="content">提示内容</div>
+						<div data-field="content">{this.props.prompt.text}</div>
 					</div>
 					<div className="footer">
 						<button onClick={() => this.cancel.call(self)} className="btn btn-default">取消</button>
@@ -70,4 +70,4 @@ function mapDispatchProps(dispatch) {
 export default connect(
 	mapStateToProps,
 	mapDispatchProps
-)(Tip);
+)(Prompt);
